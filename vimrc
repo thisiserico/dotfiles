@@ -48,8 +48,6 @@ set nowrap " do not wrap lines
 set cursorline " highlight line of cursor
 
 " key mapping
-map <C-k> :NERDTreeToggle<CR> " toggle the tree on ctrl + k
-map <S-C-c> :NERDTreeTabsFind<CR> " position on the current file on ctrl + shift + c
 nnoremap <silent> <C-l> :nohl<CR><C-l> " removes search highlightning with ctrl + l
 
 " get rid of the arrow keys and :! \o/
@@ -99,6 +97,8 @@ let g:go_highlight_operators = 1
 
 " NERDCommenter settings
 let g:NERDSpaceDelims = 1
+map <C-k> :NERDTreeToggle<CR> " toggle the tree on ctrl + k
+map <S-C-c> :NERDTreeTabsFind<CR> " position on the current file on ctrl + shift + c
 
 " Ack settings
 if executable('ag')

@@ -7,14 +7,11 @@
 	ui = auto
 [user]
 	name = Eric Lopez
-	email = e.lopez.12491@gmail.com
+	email = hello@ericlopez.me
 [core]
 	excludesfile = /Users/eric/.gitignore_global
 [push]
 	default = simple
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 
