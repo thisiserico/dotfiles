@@ -1,0 +1,20 @@
+[alias]
+	st = status -sb
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	df = diff
+	unstage = reset
+[color]
+	ui = auto
+[user]
+	name = Eric Lopez
+	email = e.lopez.12491@gmail.com
+[core]
+	excludesfile = /Users/eric/.gitignore_global
+[push]
+	default = simple
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
