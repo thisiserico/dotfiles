@@ -28,8 +28,6 @@ Plugin 'garbas/vim-snipmate' 						" snippets with <tab>
 Plugin 'honza/vim-snippets'
 Plugin 'https://github.com/elzr/vim-json'           " Json support
 Plugin 'terryma/vim-multiple-cursors'  				" Multiple cursor support
-Plugin 'https://github.com/bronson/vim-trailing-whitespace' " Trailing spaces
-Plugin 'kristijanhusak/vim-hybrid-material' " hybrid material theme
 " Plugins to work with go
 Plugin 'fatih/vim-go'
 Plugin 'nsf/gocode', {'rtp': 'vim/'} " enable go code completions
