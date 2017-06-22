@@ -35,6 +35,11 @@ Plugin 'fatih/vim-go'
 Plugin 'nsf/gocode', {'rtp': 'vim/'} " enable go code completions
 Plugin 'SirVer/ultisnips' " allow to use go snippets
 Plugin 'AndrewRadev/splitjoin.vim' " splits and joins structs
+" Plugins to work with php
+Plugin 'StanAngeloff/php.vim', { 'for': 'php' }
+Plugin 'arnaud-lb/vim-php-namespace', { 'for': 'php' } " adds use statements
+Plugin 'shawncplus/phpcomplete.vim', { 'for': 'php' } " improved omnicompletion
+Plugin 'wdalmut/vim-phpunit', { 'for': 'php' } " phpunit features
 call vundle#end() " required
 
 filetype plugin indent on " required, do not remove
@@ -46,6 +51,10 @@ set number " set the line number
 set tabstop=4 " tab set to 4 spaces
 set nowrap " do not wrap lines
 set cursorline " highlight line of cursor
+
+" improved finding
+set ignorecase
+set smartcase
 
 " key mapping
 nnoremap <silent> <C-l> :nohl<CR><C-l> " removes search highlightning with ctrl + l
