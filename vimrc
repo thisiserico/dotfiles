@@ -56,6 +56,7 @@ set smartcase
 
 " key mapping
 nnoremap <silent> <C-l> :nohl<CR><C-l> " removes search highlightning with ctrl + l
+map <C-b> :CtrlPBuffer " goes back to the previous opened file
 
 " get rid of the arrow keys and :! \o/
 noremap <Up> <NOP>
