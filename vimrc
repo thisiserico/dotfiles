@@ -56,7 +56,7 @@ set smartcase
 
 " key mapping
 nnoremap <silent> <C-l> :nohl<CR><C-l> " removes search highlightning with ctrl + l
-map <C-b> :CtrlPBuffer " goes back to the previous opened file
+map <C-x> :CtrlPBuffer " goes back to the previous opened file
 
 " get rid of the arrow keys and :! \o/
 noremap <Up> <NOP>
@@ -95,6 +95,8 @@ set nopaste
 
 " NERDTree settings
 let NERDTreeShowHidden=1
+map <C-k> :NERDTreeToggle<CR> " toggle the tree on ctrl + k
+map <S-C-c> :NERDTreeTabsFind<CR> " position on the current file on ctrl + shift + c
 
 " go-vim options
 let g:go_fmt_command = "goimports"
@@ -105,8 +107,6 @@ let g:go_highlight_operators = 1
 
 " NERDCommenter settings
 let g:NERDSpaceDelims = 1
-map <C-k> :NERDTreeToggle<CR> " toggle the tree on ctrl + k
-map <S-C-c> :NERDTreeTabsFind<CR> " position on the current file on ctrl + shift + c
 
 " Ack settings
 if executable('ag')
