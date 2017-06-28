@@ -10,6 +10,7 @@
 	email = hello@ericlopez.me
 [core]
 	excludesfile = /Users/eric/.gitignore_global
+	editor = vim
 [push]
 	default = simple
 [url "git@github.com:"]
