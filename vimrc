@@ -12,6 +12,7 @@ Plugin 'jistr/vim-nerdtree-tabs'                    " improved nerd tree
 Plugin 'Xuyuanp/nerdtree-git-plugin'                " git stuff for nerd tree
 Plugin 'vim-airline/vim-airline'                    " cool status bar
 Plugin 'vim-airline/vim-airline-themes'             " themes for the status bar
+Plugin 'morhetz/gruvbox'                            " gruvbox theme
 Plugin 'fugitive.vim'                               " git on esteroids
 Plugin 'airblade/vim-gitgutter'                     " git gutter
 Plugin 'Raimondi/delimitMate'                       " quotes highlighter
@@ -70,7 +71,7 @@ syntax enable
 syntax on
 set visualbell " avoid beeping sound
 set background=dark
-colorscheme monokai
+colorscheme gruvbox
 set laststatus=2 " show airline when only 1 file is open
 let g:airline_theme='distinguished'
 " 2 below add little red mark on lines over 80 chars
