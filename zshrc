@@ -22,5 +22,7 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 # PHP
 export PATH=/usr/local/php5/bin:$PATH:$HOME/bin
 
-source $HOME/.profile
+if [ -e ~/.profile ]; then
+	source $HOME/.profile
+fi
 
