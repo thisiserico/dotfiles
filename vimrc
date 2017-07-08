@@ -17,9 +17,10 @@ Plugin 'jakedouglas/exuberant-ctags'                " adds ctags - install ctags
 Plugin 'mileszs/ack.vim'                            " Ack within wim
 
 " Look and feel
-Plugin 'vim-airline/vim-airline'        " cool status bar
-Plugin 'vim-airline/vim-airline-themes' " themes for the status bar
-Plugin 'morhetz/gruvbox'                " gruvbox theme
+Plugin 'vim-airline/vim-airline'                          " cool status bar
+Plugin 'vim-airline/vim-airline-themes'                   " themes for the status bar
+Plugin 'morhetz/gruvbox'                                  " gruvbox theme
+Plugin 'https://github.com/joeytwiddle/sexy_scroller.vim' " scrolls smoothly
 
 " Git support
 Plugin 'fugitive.vim'           " git on esteroids
@@ -66,6 +67,8 @@ set number         " set the line number
 set tabstop=4      " tab set to 4 spaces
 set nowrap         " do not wrap lines
 set cursorline     " highlight line of cursor
+let g:SexyScroller_ScrollTime = 50 " defines the scrolling pace
+
 
 " improved finding
 set ignorecase
