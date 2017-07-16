@@ -15,6 +15,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'                " git stuff for nerd tree
 Plugin 'majutsushi/tagbar'                          " displays tags in a window
 Plugin 'jakedouglas/exuberant-ctags'                " adds ctags - install ctags.sourcefoge.net
 Plugin 'mileszs/ack.vim'                            " Ack within wim
+Plugin 'dyng/ctrlsf.vim'                            " find stuff within project
 
 " Look and feel
 Plugin 'vim-airline/vim-airline'                          " cool status bar
@@ -64,6 +65,7 @@ filetype plugin indent on " required, do not remove
 set mouse=a        " enable mouse scrolling
 set relativenumber " use relative numbers
 set number         " set the line number
+set expandtab      " uses spaces instead of tabs
 set tabstop=4      " tab set to 4 spaces
 set nowrap         " do not wrap lines
 set cursorline     " highlight line of cursor
@@ -78,6 +80,7 @@ set smartcase
 nnoremap <silent> <C-l> :nohl<CR><C-l> " removes search highlightning with ctrl + l
 map <C-x> :CtrlPBuffer " goes back to the previous opened file
 nmap <F8> :TagbarToggle<CR>
+nmap <S-F>f <Plug>CtrlSFPrompt
 
 " get rid of the arrow keys and : \o/
 noremap <Up> <NOP>
