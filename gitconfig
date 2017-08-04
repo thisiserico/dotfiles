@@ -3,6 +3,7 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	df = diff
 	unstage = reset
+    pr = "!open `git remote get-url --push origin | sed 's/git@github.com:/https:\\/\\/github.com\\//' | sed 's/.git$//'`/compare/`git rev-parse --abbrev-ref HEAD`?expand=1"
 [color]
 	ui = auto
 [user]
