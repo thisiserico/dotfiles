@@ -12,6 +12,7 @@
 [core]
 	excludesfile = /Users/eric/.gitignore_global
 	editor = vim
+	autocrlf = false
 [push]
 	default = simple
 [url "git@github.com:"]
