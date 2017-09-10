@@ -7,8 +7,8 @@ sudo apt install -y zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 
-# Install build essentials
-sudo apt install -y build-essential
+# Install build essentials and tools
+sudo apt install -y build-essential tree
 
 
 # Prepare dotfiles and generic environment
@@ -23,6 +23,7 @@ ln -s dotfiles/gitignore_global .gitignore_global
 sudo apt install -y rubygems
 sudo gem install tmuxinator
 mkdir .bin && touch .bin/tmuxinator.zsh
+mkdir .tmuxinator
 wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh && mv tmuxinator.zsh .bin/tmuxinator.zsh
 
 ## zsh
@@ -49,6 +50,8 @@ docker login quay.io
 
 
 # Install languages
+## Remember to install exuberant ctags from ctags.sourceforge.net
+
 ## Golang 1.9
 wget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.9.linux-amd64.tar.gz

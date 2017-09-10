@@ -101,6 +101,9 @@ let g:airline_theme='distinguished'
 highlight ColorColumn ctermbg=red ctermfg=black
 call matchadd('ColorColumn', '\%81v', 100)
 
+" configure the ctrlp plugin
+let g:ctrlp_max_files = 0
+
 " configure the raimondi/delimitMate plugin
 let delimitMate_expand_cr = 0
 augroup mydelimitMate
