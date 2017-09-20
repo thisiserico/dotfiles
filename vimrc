@@ -75,6 +75,7 @@ let g:SexyScroller_ScrollTime = 50 " defines the scrolling pace
 " improved finding
 set ignorecase
 set smartcase
+set noswapfile
 
 " key mapping
 nnoremap <silent> <C-l> :nohl<CR><C-l> " removes search highlightning with ctrl + l
