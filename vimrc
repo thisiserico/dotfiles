@@ -5,6 +5,8 @@ filetype off " required
 set rtp+=~/.vim/bundle/Vundle.vim " Include and initialize vundle
 set runtimepath^=~/.vim/bundle/ctrlp.vim " Include ctrlp
 
+set encoding=utf-8
+
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim' " let bundle manage vundle
 
@@ -69,13 +71,27 @@ set expandtab      " uses spaces instead of tabs
 set tabstop=4      " tab set to 4 spaces
 set nowrap         " do not wrap lines
 set cursorline     " highlight line of cursor
-let g:SexyScroller_ScrollTime = 50 " defines the scrolling pace
 
+
+" proper ctrl + v
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+set nopaste
 
 " improved finding
 set ignorecase
 set smartcase
 set noswapfile
+set nobackup
+set splitright
+set splitbelow
+set autoread
 
 " key mapping
 nnoremap <silent> <C-l> :nohl<CR><C-l> " removes search highlightning with ctrl + l
@@ -98,6 +114,7 @@ set background=dark
 colorscheme gruvbox
 set laststatus=2 " show airline even when only 1 file is open
 let g:airline_theme='distinguished'
+
 " 2 below add little red mark on lines over 80 chars
 highlight ColorColumn ctermbg=red ctermfg=black
 call matchadd('ColorColumn', '\%81v', 100)
@@ -118,9 +135,6 @@ augroup END
 " get rid of the whitespace on save
 autocmd BufEnter * EnableStripWhitespaceOnSave
 
-" paste mode
-set nopaste
-
 " NERDTree settings
 let NERDTreeShowHidden=1
 map <C-k> :NERDTreeToggle<CR> " toggle the tree on ctrl + k
@@ -133,6 +147,7 @@ let g:go_auto_type_info = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
+let g:go_fmt_fail_silently = 0
 
 " NERDCommenter settings
 let g:NERDSpaceDelims = 1
@@ -147,4 +162,12 @@ augroup markdown
     au!
     au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
+
+" define space for particular file types
+au BufNewFile,BufRead *.vim setlocal noet ts=4 sw=4 sts=4
+au BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4
+au BufNewFile,BufRead *.md setlocal spell noet ts=4 sw=4
+au BufNewFile,BufRead *.yml,*.yaml setlocal expandtab ts=2 sw=2
+au BufNewFile,BufRead *.feature setlocal expandtab ts=4 sw=4
+au BufNewFile,BufRead *.json setlocal expandtab ts=4 sw=4
 
