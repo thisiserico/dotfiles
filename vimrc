@@ -169,5 +169,5 @@ au BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4
 au BufNewFile,BufRead *.md setlocal spell noet ts=4 sw=4
 au BufNewFile,BufRead *.yml,*.yaml setlocal expandtab ts=4 sw=4
 au BufNewFile,BufRead *.feature setlocal expandtab ts=4 sw=4
-au BufNewFile,BufRead *.json setlocal expandtab ts=4 sw=4
+au BufNewFile,BufRead *.js,*.json setlocal expandtab ts=4 sw=4
 
