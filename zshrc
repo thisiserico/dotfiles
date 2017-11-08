@@ -20,7 +20,7 @@ export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # PHP
-export PATH=/usr/local/php5/bin:$PATH:$HOME/bin
+export PATH=/usr/local/php5/bin:/usr/local/php7/bin:$PATH:$HOME/bin
 
 if [ -e ~/.profile ]; then
 	source $HOME/.profile
