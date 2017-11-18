@@ -19,7 +19,21 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 
 # Install development utilities
+## Prepare go environment
 mkdir -p ~/go/{src,pkg,bin}
+
+## Install grpc
+go get -u google.golang.org/grpc
+wget https://github.com/google/protobuf/releases/download/v3.5.0/protobuf-all-3.5.0.tar.gz
+tar -xzvf protobuf-all-3.5.0.tar.gz
+cd protobuf-3.5.0
+./configure
+make
+sudo make install
+cd ..
+go get -u github.com/golang/protobuf/protoc-gen-go
+
+## Install php7.1 :facepalm:
 curl -s https://php-osx.liip.ch/install.sh | bash -s 7.1
 
 # Configure dotfiles
