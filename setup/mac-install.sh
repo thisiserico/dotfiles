@@ -22,6 +22,9 @@ git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 ## Prepare go environment
 mkdir -p ~/go/{src,pkg,bin}
 
+## Install go utilities
+go get golang.org/x/tools/cmd/guru
+
 ## Install grpc
 go get -u google.golang.org/grpc
 wget https://github.com/google/protobuf/releases/download/v3.5.0/protobuf-all-3.5.0.tar.gz
