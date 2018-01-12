@@ -96,7 +96,6 @@ set autoread
 " key mapping
 nnoremap <silent> <C-l> :nohl<CR><C-l> " removes search highlightning with ctrl + l
 map <C-x> :CtrlPBuffer " goes back to the previous opened file
-nmap <F8> :TagbarToggle<CR>
 nmap <S-F>f <Plug>CtrlSFPrompt
 
 " get rid of the arrow keys and : \o/
@@ -139,6 +138,10 @@ autocmd BufEnter * EnableStripWhitespaceOnSave
 let NERDTreeShowHidden=1
 map <C-k> :NERDTreeToggle<CR> " toggle the tree on ctrl + k
 map <S-C-c> :NERDTreeTabsFind<CR> " position on the current file on ctrl + shift + c
+
+" tagbar settings
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_left = 1
 
 " go-vim options
 nmap gb :GoBuild<CR>
