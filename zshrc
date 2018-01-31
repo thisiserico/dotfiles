@@ -11,8 +11,9 @@ bindkey "[D" backward-word
 
 export TERM=screen-256color
 
-# Prepare tmuxinator projects
+# Set up tmux related things
 source ~/.bin/tmuxinator.zsh
+alias tls="tmux list-sessions"
 
 # Golang
 export GOPATH=$HOME/go
