@@ -20,3 +20,5 @@
 [url "git@gitlab.com:"]
 	insteadOf = https://gitlab.com/
 
+[http]
+	postBuffer = 157286400
