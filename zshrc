@@ -27,3 +27,6 @@ if [ -e ~/.profile ]; then
 	source $HOME/.profile
 fi
 
+# Making lifes easier
+alias path='echo $PATH | tr -s ":" "\n"'
+
