@@ -43,6 +43,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'         " dependency for easy motion
 Plugin 'tomtom/tlib_vim'                      " dependency for easy motion
 Plugin 'https://github.com/elzr/vim-json'     " Json support
 Plugin 'terryma/vim-multiple-cursors'  		  " Multiple cursor support
+Plugin 'cespare/vim-toml'                     " Toml syntax
 
 " Markdown specific
 Plugin 'tpope/vim-markdown'             " markdown support
