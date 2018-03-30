@@ -56,6 +56,17 @@ Plugin 'nsf/gocode', {'rtp': 'vim/'} " enable go code completions
 Plugin 'SirVer/ultisnips'            " allow to use go snippets
 Plugin 'AndrewRadev/splitjoin.vim'   " splits and joins structs
 
+" JS specific
+Plugin 'mattn/emmet-vim'                                 " snippets for fast html
+Plugin 'prettier/vim-prettier', { 'do': 'yarn install' } " JS formatting
+Plugin 'jbgutierrez/vim-babel'                           " Babel parser
+Plugin 'mattn/webapi-vim'                                " vim-babel requirement
+Plugin 'mxw/vim-jsx'                                     " JSX syntax highlighting
+
+" CSS specific
+Plugin 'wavded/vim-stylus'                    " Stylus syntax highlighter
+Plugin 'rstacruz/vim-hyperstyle'              " Faster css tool
+
 " PHP specific
 Plugin 'StanAngeloff/php.vim', { 'for': 'php' }        " adds lots of php utilities
 Plugin 'arnaud-lb/vim-php-namespace', { 'for': 'php' } " adds use statements
@@ -159,6 +170,9 @@ let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_fmt_fail_silently = 0
 
+" JS plugins settings
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
 " NERDCommenter settings
 let g:NERDSpaceDelims = 1
 
@@ -180,4 +194,5 @@ au BufNewFile,BufRead *.md setlocal spell noet ts=4 sw=4
 au BufNewFile,BufRead *.yml,*.yaml setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.feature setlocal expandtab ts=4 sw=4
 au BufNewFile,BufRead *.js,*.json setlocal expandtab ts=4 sw=4
+au BufNewFile,BufRead *.styl setlocal expandtab ts=2 sw=2
 
