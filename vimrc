@@ -18,6 +18,7 @@ Plugin 'majutsushi/tagbar'                          " displays tags in a window
 Plugin 'jakedouglas/exuberant-ctags'                " adds ctags - install ctags.sourcefoge.net
 Plugin 'mileszs/ack.vim'                            " Ack within wim
 Plugin 'dyng/ctrlsf.vim'                            " find stuff within project
+Plugin 'sjl/gundo.vim'                              " Vim history interface
 
 " Look and feel
 Plugin 'vim-airline/vim-airline'                          " cool status bar
@@ -143,6 +144,11 @@ map <S-C-c> :NERDTreeTabsFind<CR> " position on the current file on ctrl + shift
 " tagbar settings
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_left = 1
+
+" gundo seetings
+nnoremap <F9> :GundoToggle<CR>
+let g:gundo_right = 1
+let g:gundo_preview_bottom = 1
 
 " go-vim options
 nmap gb :GoBuild<CR>
