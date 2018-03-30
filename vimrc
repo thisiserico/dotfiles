@@ -133,6 +133,8 @@ call matchadd('ColorColumn', '\%81v', 100)
 
 " configure the ctrlp plugin
 let g:ctrlp_max_files = 0
+let g:ctrlp_max_depth = 40
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " configure the raimondi/delimitMate plugin
 let delimitMate_expand_cr = 0
