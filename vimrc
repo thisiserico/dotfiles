@@ -165,12 +165,13 @@ let g:gundo_preview_bottom = 1
 
 " go-vim options
 nmap gb :GoBuild<CR>
+nmap gv :GoTest<CR>
+let g:go_auto_type_info = 0
 let g:go_fmt_command = "goimports"
-let g:go_auto_type_info = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
 let g:go_fmt_fail_silently = 0
+let g:go_highlight_functions = 1
+let g:go_highlight_functions_calls = 1
+let g:go_highlight_operators = 1
 
 " JS plugins settings
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
