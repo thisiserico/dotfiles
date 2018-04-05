@@ -30,3 +30,9 @@ fi
 # Making lifes easier
 alias path='echo $PATH | tr -s ":" "\n"'
 
+# Methods
+## prints port status using lsof
+% busyport () {
+    lsof -n -i:$1 | grep LISTEN
+}
+
