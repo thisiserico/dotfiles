@@ -51,6 +51,7 @@ dotfiles:
 	ln -s ~/dotfiles/vimrc ~/.vimrc
 	ln -sF ~/dotfiles/vim/colors ~/.vim/colors
 	ln -s ~/dotfiles/zshrc ~/.zshrc
+	ln -s ~/dotfiles/oh-my-zsh/themes/lostavit.zsh-theme ~/.oh-my-zsh/themes/lostavit.zsh-theme
 	ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 	ln -s ~/dotfiles/NERDTreeBookmarks ~/.NERDTreeBookmarks
 	zsh ~/dotfiles/zshrc
