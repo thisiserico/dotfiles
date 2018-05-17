@@ -36,3 +36,8 @@ alias path='echo $PATH | tr -s ":" "\n"'
     lsof -n -i:$1 | grep LISTEN
 }
 
+## helps ídentity misterious IPs
+% whosip () {
+    openssl s_client -showcerts -connect $1:$2 | grep CN
+}
+
