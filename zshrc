@@ -20,6 +20,9 @@ export GOPATH=$HOME/go
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
+# gcloud
+export PATH=$PATH:$HOME/bin/google-cloud-sdk/bin
+
 # PHP
 export PATH=/usr/local/php5/bin:/usr/local/php7/bin:$PATH:$HOME/bin
 
