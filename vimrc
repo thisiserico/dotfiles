@@ -163,10 +163,10 @@ nnoremap <F9> :GundoToggle<CR>
 let g:gundo_right = 1
 let g:gundo_preview_bottom = 1
 
-" go-vim options
+" vim-go options
 nmap gb :GoBuild<CR>
 nmap gv :GoTest<CR>
-let g:go_auto_type_info = 0
+let g:go_auto_type_info = 1
 let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 0
 let g:go_highlight_functions = 1
