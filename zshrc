@@ -44,3 +44,8 @@ alias path='echo $PATH | tr -s ":" "\n"'
     openssl s_client -showcerts -connect $1:$2 | grep CN
 }
 
+## golang's dep dependency graph (brew install graphviz)
+% depgraph () {
+    dep status -dot | dot -T png | open -f -a /Applications/Preview.app
+}
+
