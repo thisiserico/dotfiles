@@ -127,9 +127,9 @@ colorscheme gruvbox
 set laststatus=2 " show airline even when only 1 file is open
 let g:airline_theme='distinguished'
 
-" 2 below add little red mark on lines over 80 chars
+" 2 below add little red mark on lines over 100 chars
 highlight ColorColumn ctermbg=red ctermfg=black
-call matchadd('ColorColumn', '\%81v', 100)
+call matchadd('ColorColumn', '\%101v', 100)
 
 " configure the ctrlp plugin
 let g:ctrlp_max_files = 0
