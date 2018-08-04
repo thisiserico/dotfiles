@@ -45,7 +45,6 @@ php:
 	curl -s https://php-osx.liip.ch/install.sh | bash -s 7.1
 
 dotfiles:
-	git clone https://github.com/thisiserico/dotfiles.git ~/dotfiles
 	ln -s ~/dotfiles/gitconfig ~/.gitconfig
 	ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
 	ln -s ~/dotfiles/vimrc ~/.vimrc
