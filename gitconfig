@@ -4,21 +4,26 @@
 	df = diff
 	unstage = reset
     pr = "!open `git remote get-url --push origin | sed 's/git@github.com:/https:\\/\\/github.com\\//' | sed 's/.git$//'`/compare/`git rev-parse --abbrev-ref HEAD`?expand=1"
+
 [color]
 	ui = auto
 [user]
 	name = Eric Lopez
 	email = hello@ericlopez.me
+
 [core]
 	excludesfile = /Users/eric/.gitignore_global
 	editor = vim
 	autocrlf = false
+
 [push]
 	default = simple
+
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [url "git@gitlab.com:"]
 	insteadOf = https://gitlab.com/
 
-[http]
-	postBuffer = 157286400
+[rerere]
+	enabled = 1
+	autoupdate = 1
