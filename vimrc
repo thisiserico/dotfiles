@@ -15,10 +15,10 @@ Plugin 'https://github.com/scrooloose/nerdtree.git' " file navigation menu
 Plugin 'jistr/vim-nerdtree-tabs'                    " improved nerd tree
 Plugin 'Xuyuanp/nerdtree-git-plugin'                " git stuff for nerd tree
 Plugin 'majutsushi/tagbar'                          " displays tags in a window
-Plugin 'jakedouglas/exuberant-ctags'                " adds ctags - install ctags.sourcefoge.net
-Plugin 'mileszs/ack.vim'                            " Ack within wim
+" Plugin 'jakedouglas/exuberant-ctags'                " adds ctags - install ctags.sourcefoge.net
+Plugin 'mileszs/ack.vim'                            " ack within wim
 Plugin 'dyng/ctrlsf.vim'                            " find stuff within project
-Plugin 'sjl/gundo.vim'                              " Vim history interface
+Plugin 'sjl/gundo.vim'                              " vim history interface
 
 " Look and feel
 Plugin 'vim-airline/vim-airline'                          " cool status bar
@@ -29,22 +29,23 @@ Plugin 'https://github.com/joeytwiddle/sexy_scroller.vim' " scrolls smoothly
 " Git support
 Plugin 'fugitive.vim'           " git on esteroids
 Plugin 'airblade/vim-gitgutter' " git gutter
+Plugin 'wincent/terminus'       " terminal integration
 
 " Code helpers
 Plugin 'Raimondi/delimitMate'                 " quotes highlighter
 Plugin 'tpope/vim-surround'                   " performance for surrounding pairs like quotes or tags
 Plugin 'ntpeters/vim-better-whitespace'       " whitespace renderer
 Plugin 'ekalinin/Dockerfile.vim'              " dockerfile highlighter
-Plugin 'https://github.com/ervandew/supertab' " Autocomplete with tab
+Plugin 'https://github.com/ervandew/supertab' " autocomplete with tab
 Plugin 'garbas/vim-snipmate' 				  " snippets with <tab>
 Plugin 'honza/vim-snippets'                   " lots of snippets
-Plugin 'scrooloose/nerdcommenter'             " Comment and uncomment code easily
-Plugin 'easymotion/vim-easymotion' 			  " Move faster through the code
+Plugin 'scrooloose/nerdcommenter'             " comment and uncomment code easily
+Plugin 'easymotion/vim-easymotion' 			  " move faster through the code
 Plugin 'MarcWeber/vim-addon-mw-utils'         " dependency for easy motion
 Plugin 'tomtom/tlib_vim'                      " dependency for easy motion
-Plugin 'https://github.com/elzr/vim-json'     " Json support
-Plugin 'terryma/vim-multiple-cursors'  		  " Multiple cursor support
-Plugin 'cespare/vim-toml'                     " Toml syntax
+Plugin 'https://github.com/elzr/vim-json'     " json support
+Plugin 'terryma/vim-multiple-cursors'  		  " multiple cursor support
+Plugin 'cespare/vim-toml'                     " toml syntax
 
 " Markdown specific
 Plugin 'tpope/vim-markdown'             " markdown support
@@ -58,20 +59,17 @@ Plugin 'AndrewRadev/splitjoin.vim'   " splits and joins structs
 
 " JS specific
 Plugin 'mattn/emmet-vim'                                 " snippets for fast html
-Plugin 'prettier/vim-prettier', { 'do': 'yarn install' } " JS formatting
-Plugin 'jbgutierrez/vim-babel'                           " Babel parser
+Plugin 'prettier/vim-prettier', { 'do': 'yarn install' } " js formatting
+Plugin 'jbgutierrez/vim-babel'                           " babel parser
 Plugin 'mattn/webapi-vim'                                " vim-babel requirement
-Plugin 'mxw/vim-jsx'                                     " JSX syntax highlighting
+Plugin 'mxw/vim-jsx'                                     " jsx syntax highlighting
+Plugin 'pangloss/vim-javascript'                         " syntax highlighting and improved indentation
+Plugin 'moll/vim-node'                                   " node tooling
 
 " CSS specific
 Plugin 'wavded/vim-stylus'                    " Stylus syntax highlighter
 Plugin 'rstacruz/vim-hyperstyle'              " Faster css tool
 
-" PHP specific
-Plugin 'StanAngeloff/php.vim', { 'for': 'php' }        " adds lots of php utilities
-Plugin 'arnaud-lb/vim-php-namespace', { 'for': 'php' } " adds use statements
-Plugin 'shawncplus/phpcomplete.vim', { 'for': 'php' }  " improved omnicompletion
-Plugin 'wdalmut/vim-phpunit', { 'for': 'php' }         " phpunit features
 call vundle#end() " required
 
 filetype plugin indent on " required, do not remove
@@ -151,7 +149,8 @@ autocmd BufEnter * EnableStripWhitespaceOnSave
 
 " NERDTree settings
 let NERDTreeShowHidden=1
-map <C-k> :NERDTreeToggle<CR> " toggle the tree on ctrl + k
+nmap <F5> :NERDTreeFind<CR>       " toggle nerd tree focusing on file
+nmap <F6> :NERDTreeToggle<CR>     " toggle nerd tree
 map <S-C-c> :NERDTreeTabsFind<CR> " position on the current file on ctrl + shift + c
 
 " tagbar settings
@@ -175,6 +174,11 @@ let g:go_highlight_operators = 1
 
 " JS plugins settings
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+autocmd User Node
+  \ if &filetype == "javascript" |
+  \   nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile |
+  \   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
+  \ endif
 
 " NERDCommenter settings
 let g:NERDSpaceDelims = 1
