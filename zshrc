@@ -27,8 +27,16 @@ if [ -e ~/.profile ]; then
 	source $HOME/.profile
 fi
 
-# Making lifes easier
+# Making lifes easier and prettier
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vim {})+abort'"
 alias path='echo $PATH | tr -s ":" "\n"'
+alias cat='bat'
+alias ping='prettyping --nolegend'
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+alias top="htop"
+alias du="ncdu --color dark -rr --exclude .git --exclude node_modules"
+alias nan='tldr'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Methods
 ## prints port status using lsof
