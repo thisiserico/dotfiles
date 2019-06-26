@@ -33,6 +33,7 @@ Plugin 'wincent/terminus'       " terminal integration
 
 " Code helpers
 Plugin 'Raimondi/delimitMate'                 " quotes highlighter
+Plugin 'luochen1990/rainbow'                  " parentheses coloring
 Plugin 'tpope/vim-surround'                   " performance for surrounding pairs like quotes or tags
 Plugin 'ntpeters/vim-better-whitespace'       " whitespace renderer
 Plugin 'ekalinin/Dockerfile.vim'              " dockerfile highlighter
@@ -124,6 +125,7 @@ set background=dark
 colorscheme gruvbox
 set laststatus=2 " show airline even when only 1 file is open
 let g:airline_theme='distinguished'
+let g:rainbow_active = 1
 
 " 2 below add little red mark on lines over 100 chars
 highlight ColorColumn ctermbg=red ctermfg=black
