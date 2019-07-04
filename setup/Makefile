@@ -31,14 +31,14 @@ go-setup:
 
 grpc:
 	go get -u google.golang.org/grpc
-	wget https://github.com/google/protobuf/releases/download/v3.5.0/protobuf-all-3.5.0.tar.gz
-	tar -xzvf protobuf-all-3.5.0.tar.gz
-	cd protobuf-3.5.0
+	wget https://github.com/google/protobuf/releases/download/v3.8.0/protobuf-all-3.8.0.tar.gz
+	tar -xzvf protobuf-all-3.8.0.tar.gz
+	cd protobuf-3.8.0
 	./configure
 	make
 	sudo make install
 	cd ..
-	rm -rf protobuf-3.5.0
+	rm -rf protobuf-3.8.0
 	go get -u github.com/golang/protobuf/protoc-gen-go
 
 php:

@@ -15,7 +15,7 @@ Plugin 'https://github.com/scrooloose/nerdtree.git' " file navigation menu
 Plugin 'jistr/vim-nerdtree-tabs'                    " improved nerd tree
 Plugin 'Xuyuanp/nerdtree-git-plugin'                " git stuff for nerd tree
 Plugin 'majutsushi/tagbar'                          " displays tags in a window
-" Plugin 'jakedouglas/exuberant-ctags'                " adds ctags - install ctags.sourcefoge.net
+" Plugin 'jakedouglas/exuberant-ctags'                " adds ctags - install ctags.sourceforge.net
 Plugin 'mileszs/ack.vim'                            " ack within wim
 Plugin 'dyng/ctrlsf.vim'                            " find stuff within project
 Plugin 'sjl/gundo.vim'                              " vim history interface
