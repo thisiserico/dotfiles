@@ -107,8 +107,9 @@ set autoread
 
 " key mapping
 nnoremap <silent> <C-l> :nohl<CR><C-l> " removes search highlightning with ctrl + l
-map <C-x> :CtrlPBuffer " goes back to the previous opened file
+map <C-x> :CtrlPBuffer                 " goes back to the previous opened file
 nmap <S-F>f <Plug>CtrlSFPrompt
+map q: :q                              " avoid q: window
 
 " get rid of the arrow keys and : \o/
 noremap <Up> <NOP>
