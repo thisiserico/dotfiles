@@ -12,7 +12,6 @@ Plugin 'VundleVim/Vundle.vim' " let bundle manage vundle
 
 " Navigation helpers
 Plugin 'https://github.com/scrooloose/nerdtree.git' " file navigation menu
-Plugin 'jistr/vim-nerdtree-tabs'                    " improved nerd tree
 Plugin 'Xuyuanp/nerdtree-git-plugin'                " git stuff for nerd tree
 Plugin 'majutsushi/tagbar'                          " displays tags in a window
 " Plugin 'jakedouglas/exuberant-ctags'                " adds ctags - install ctags.sourceforge.net
@@ -40,10 +39,10 @@ Plugin 'ekalinin/Dockerfile.vim'              " dockerfile highlighter
 Plugin 'https://github.com/ervandew/supertab' " autocomplete with tab
 Plugin 'garbas/vim-snipmate' 				  " snippets with <tab>
 Plugin 'honza/vim-snippets'                   " lots of snippets
+Plugin 'MarcWeber/vim-addon-mw-utils'         " dependency for snipmate
+Plugin 'tomtom/tlib_vim'                      " dependency for snipmate
 Plugin 'scrooloose/nerdcommenter'             " comment and uncomment code easily
 Plugin 'easymotion/vim-easymotion' 			  " move faster through the code
-Plugin 'MarcWeber/vim-addon-mw-utils'         " dependency for easy motion
-Plugin 'tomtom/tlib_vim'                      " dependency for easy motion
 Plugin 'https://github.com/elzr/vim-json'     " json support
 Plugin 'terryma/vim-multiple-cursors'  		  " multiple cursor support
 Plugin 'cespare/vim-toml'                     " toml syntax
@@ -54,22 +53,22 @@ Plugin 'jtratner/vim-flavored-markdown' " github highlightning
 
 " Go specific
 Plugin 'fatih/vim-go'                " adds lots of go utilities
-Plugin 'nsf/gocode', {'rtp': 'vim/'} " enable go code completions
-Plugin 'SirVer/ultisnips'            " allow to use go snippets
+" Plugin 'nsf/gocode', {'rtp': 'vim/'} " enable go code completions
+" Plugin 'SirVer/ultisnips'            " allow to use go snippets
 Plugin 'AndrewRadev/splitjoin.vim'   " splits and joins structs
 
 " JS specific
-Plugin 'mattn/emmet-vim'                                 " snippets for fast html
-Plugin 'prettier/vim-prettier', { 'do': 'yarn install' } " js formatting
-Plugin 'jbgutierrez/vim-babel'                           " babel parser
-Plugin 'mattn/webapi-vim'                                " vim-babel requirement
-Plugin 'mxw/vim-jsx'                                     " jsx syntax highlighting
-Plugin 'pangloss/vim-javascript'                         " syntax highlighting and improved indentation
-Plugin 'moll/vim-node'                                   " node tooling
+" Plugin 'mattn/emmet-vim'                                 " snippets for fast html
+" Plugin 'prettier/vim-prettier', { 'do': 'yarn install' } " js formatting
+" Plugin 'jbgutierrez/vim-babel'                           " babel parser
+" Plugin 'mattn/webapi-vim'                                " vim-babel requirement
+" Plugin 'mxw/vim-jsx'                                     " jsx syntax highlighting
+" Plugin 'pangloss/vim-javascript'                         " syntax highlighting and improved indentation
+" Plugin 'moll/vim-node'                                   " node tooling
 
 " CSS specific
-Plugin 'wavded/vim-stylus'                    " Stylus syntax highlighter
-Plugin 'rstacruz/vim-hyperstyle'              " Faster css tool
+" Plugin 'wavded/vim-stylus'                    " Stylus syntax highlighter
+" Plugin 'rstacruz/vim-hyperstyle'              " Faster css tool
 
 call vundle#end() " required
 
@@ -107,7 +106,7 @@ set autoread
 
 " key mapping
 nnoremap <silent> <C-l> :nohl<CR><C-l> " removes search highlightning with ctrl + l
-map <C-x> :CtrlPBuffer                 " goes back to the previous opened file
+map <C-x> :CtrlPBuffer<CR>
 nmap <S-F>f <Plug>CtrlSFPrompt
 map q: :q                              " avoid q: window
 
@@ -160,6 +159,9 @@ map <S-C-c> :NERDTreeTabsFind<CR> " position on the current file on ctrl + shift
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_left = 1
 
+" Multiple cursor support
+let g:multi_cursor_select_all_key = '<C-m>'
+
 " gundo seetings
 nnoremap <F9> :GundoToggle<CR>
 let g:gundo_right = 1
@@ -168,6 +170,7 @@ let g:gundo_preview_bottom = 1
 " vim-go options
 nmap gb :GoBuild<CR>
 nmap gv :GoTest<CR>
+let g:go_version_warning = 0
 let g:go_auto_type_info = 1
 let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 0
@@ -176,12 +179,12 @@ let g:go_highlight_functions_calls = 1
 let g:go_highlight_operators = 1
 
 " JS plugins settings
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-autocmd User Node
-  \ if &filetype == "javascript" |
-  \   nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile |
-  \   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
-  \ endif
+" let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+" autocmd User Node
+  " \ if &filetype == "javascript" |
+  " \   nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile |
+  " \   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
+  " \ endif
 
 " NERDCommenter settings
 let g:NERDSpaceDelims = 1

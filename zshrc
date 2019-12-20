@@ -23,6 +23,8 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 # gcloud
 export PATH=$PATH:$HOME/bin/google-cloud-sdk/bin
 
+export PATH=$PATH:$HOME/bin
+
 if [ -e ~/.profile ]; then
 	source $HOME/.profile
 fi
