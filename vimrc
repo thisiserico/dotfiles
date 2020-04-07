@@ -53,22 +53,7 @@ Plugin 'jtratner/vim-flavored-markdown' " github highlightning
 
 " Go specific
 Plugin 'fatih/vim-go'                " adds lots of go utilities
-" Plugin 'nsf/gocode', {'rtp': 'vim/'} " enable go code completions
-" Plugin 'SirVer/ultisnips'            " allow to use go snippets
 Plugin 'AndrewRadev/splitjoin.vim'   " splits and joins structs
-
-" JS specific
-" Plugin 'mattn/emmet-vim'                                 " snippets for fast html
-" Plugin 'prettier/vim-prettier', { 'do': 'yarn install' } " js formatting
-" Plugin 'jbgutierrez/vim-babel'                           " babel parser
-" Plugin 'mattn/webapi-vim'                                " vim-babel requirement
-" Plugin 'mxw/vim-jsx'                                     " jsx syntax highlighting
-" Plugin 'pangloss/vim-javascript'                         " syntax highlighting and improved indentation
-" Plugin 'moll/vim-node'                                   " node tooling
-
-" CSS specific
-" Plugin 'wavded/vim-stylus'                    " Stylus syntax highlighter
-" Plugin 'rstacruz/vim-hyperstyle'              " Faster css tool
 
 call vundle#end() " required
 
@@ -178,14 +163,6 @@ let g:go_fmt_fail_silently = 0
 let g:go_highlight_functions = 1
 let g:go_highlight_functions_calls = 1
 let g:go_highlight_operators = 1
-
-" JS plugins settings
-" let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-" autocmd User Node
-  " \ if &filetype == "javascript" |
-  " \   nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile |
-  " \   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
-  " \ endif
 
 " NERDCommenter settings
 let g:NERDSpaceDelims = 1
