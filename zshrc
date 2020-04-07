@@ -38,6 +38,7 @@ alias preview="fzf --preview 'bat --color \"always\" {}'"
 alias top="htop"
 alias du="ncdu --color dark -rr --exclude .git --exclude node_modules"
 alias nan='tldr'
+alias ll='exa --long --header --git'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Methods

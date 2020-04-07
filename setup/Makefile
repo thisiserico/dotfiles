@@ -2,7 +2,7 @@ brew:
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew-install:
-	brew install wget git zsh zsh-completions wget tmux tmuxinator-completion tree mdv ag ack ccat
+	brew install wget git zsh zsh-completions wget tmux tmuxinator-completion tree mdv ag ack ccat exa
 
 dev-tools: tmuxinator zsh vim go
 
