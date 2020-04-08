@@ -89,17 +89,17 @@ set splitbelow
 set autoread
 
 " key mapping
+let mapleader = ","                    " <leader> is now ,
+map q: :q                              " avoid q: window
 nnoremap <silent> <C-l> :nohl<CR><C-l> " removes search highlightning with ctrl + l
 map <C-x> :CtrlPBuffer<CR>
 nmap <S-F>f <Plug>CtrlSFPrompt
-map q: :q                              " avoid q: window
 
 " get rid of the arrow keys and : \o/
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-nnoremap ; :
 
 " configure look and feel
 syntax enable
@@ -113,7 +113,7 @@ let g:rainbow_active = 1
 
 " 2 below add little red mark on lines over 100 chars
 highlight ColorColumn ctermbg=red ctermfg=black
-call matchadd('ColorColumn', '\%101v', 100)
+call matchadd('ColorColumn', '\%81v', 80)
 
 " configure the ctrlp plugin
 let g:ctrlp_max_files = 0
