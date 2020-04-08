@@ -149,8 +149,9 @@ let g:gundo_right = 1
 let g:gundo_preview_bottom = 1
 
 " vim-go options
-nmap gb :GoBuild<CR>
-nmap gv :GoTest<CR>
+autocmd FileType go nmap <leader>t <Plug>(go-test)
+autocmd FileType go nmap <leader>b <Plug>(go-build)
+autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
 let g:go_version_warning = 0
 let g:go_auto_type_info = 1
 let g:go_fmt_command = "goimports"
