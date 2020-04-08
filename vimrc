@@ -44,7 +44,6 @@ Plugin 'tomtom/tlib_vim'                      " dependency for snipmate
 Plugin 'scrooloose/nerdcommenter'             " comment and uncomment code easily
 Plugin 'easymotion/vim-easymotion' 			  " move faster through the code
 Plugin 'https://github.com/elzr/vim-json'     " json support
-Plugin 'terryma/vim-multiple-cursors'  		  " multiple cursor support
 Plugin 'cespare/vim-toml'                     " toml syntax
 
 " Markdown specific
@@ -143,9 +142,6 @@ map <S-C-c> :NERDTreeTabsFind<CR> " position on the current file on ctrl + shift
 " tagbar settings
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_left = 1
-
-" Multiple cursor support
-let g:multi_cursor_select_all_key = '<C-m>'
 
 " gundo seetings
 nnoremap <F9> :GundoToggle<CR>
