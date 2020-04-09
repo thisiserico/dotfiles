@@ -6,9 +6,6 @@ plugins=(git docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
-bindkey "[C" forward-word
-bindkey "[D" backward-word
-
 export TERM=screen-256color
 
 # Set up tmux related things
