@@ -2,14 +2,11 @@ export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="lostavit"
 
-plugins=(git docker-compose)
-
 source $ZSH/oh-my-zsh.sh
 
 export TERM=screen-256color
 
 # Set up tmux related things
-source ~/.bin/tmuxinator.zsh
 alias tls="tmux list-sessions"
 
 # Golang
@@ -17,9 +14,7 @@ export GOPATH=$HOME/go
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
-# gcloud
-export PATH=$PATH:$HOME/bin/google-cloud-sdk/bin
-
+# Modify $PATH
 export PATH=$PATH:$HOME/bin
 
 if [ -e ~/.profile ]; then
