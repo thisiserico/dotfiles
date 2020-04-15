@@ -59,13 +59,14 @@ call vundle#end() " required
 filetype plugin indent on " required, do not remove
 
 " improved navigation
-set mouse=a        " enable mouse scrolling
-set relativenumber " use relative numbers
-set number         " set the line number
-set expandtab      " uses spaces instead of tabs
-set tabstop=4      " tab set to 4 spaces
-set nowrap         " do not wrap lines
-set cursorline     " highlight line of cursor
+set mouse=a         " enable mouse scrolling
+set relativenumber  " use relative numbers
+set number          " set the line number
+set expandtab       " uses spaces instead of tabs
+set tabstop=4       " tab set to 4 spaces
+set nowrap          " do not wrap lines
+set cursorline      " highlight line of cursor
+set virtualedit=all " move cursor with no limitations
 
 
 " proper ctrl + v
