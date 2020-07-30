@@ -67,6 +67,7 @@ set tabstop=4       " tab set to 4 spaces
 set nowrap          " do not wrap lines
 set cursorline      " highlight line of cursor
 set virtualedit=all " move cursor with no limitations
+set sidescroll=1    " smooth scroll
 
 
 " proper ctrl + v
@@ -152,6 +153,7 @@ let g:gundo_preview_bottom = 1
 " vim-go options
 autocmd FileType go nmap <leader>t <Plug>(go-test)
 autocmd FileType go nmap <leader>b <Plug>(go-build)
+autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
 let g:go_version_warning = 0
 let g:go_auto_type_info = 1
@@ -180,7 +182,7 @@ augroup END
 au BufNewFile,BufRead *.vim setlocal noet ts=4 sw=4 sts=4
 au BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4
 au BufNewFile,BufRead *.md setlocal spell noet ts=4 sw=4
-au BufNewFile,BufRead *.yml,*.yaml setlocal expandtab ts=2 sw=2
+au BufNewFile,BufRead *.yml,*.yaml,*.toml setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.feature setlocal expandtab ts=4 sw=4
 au BufNewFile,BufRead *.js,*.json setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.styl setlocal expandtab ts=2 sw=2
