@@ -33,6 +33,8 @@ alias nan='tldr'
 alias ll='exa --long --header --git'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+bindkey '^e' edit-command-line
+
 # Methods
 ## prints port status using lsof
 % busyport () {
