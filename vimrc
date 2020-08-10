@@ -7,6 +7,11 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim " Include ctrlp
 
 set encoding=utf-8
 
+" highlights (declared before plugins on purpose)
+set incsearch
+set showmatch
+set hlsearch
+
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim' " let bundle manage vundle
 
@@ -82,18 +87,24 @@ endfunction
 set nopaste
 
 " improved finding
-set ignorecase
-set smartcase
-set noswapfile
-set nobackup
-set splitright
-set splitbelow
-set autoread
+set ignorecase " case insensitive by default...
+set smartcase  " ...unless using a capitalised letter
+set gdefault   " /g by default
+set splitright " split panes right
+set splitbelow " split panes below
+set autoread   " reload modified files when using some command
+set noswapfile " disable the annoying swap file
+set nobackup   " disable the backup functionality
+
+" matches braket pairs
+nnoremap <tab> %
+vnoremap <tab> %
 
 " key mapping
-let mapleader = ","                    " <leader> is now ,
-map q: :q                              " avoid q: window
-nnoremap <silent> <C-l> :nohl<CR><C-l> " removes search highlightning with ctrl + l
+let mapleader = ","               " <leader> is now ,
+map q: :q                         " avoid q: window
+nnoremap <leader><space> :noh<cr> " clear highlights with
+inoremap jj <ESC>                 " use jj on inert to escape
 map <C-x> :CtrlPBuffer<CR>
 nmap <S-F>f <Plug>CtrlSFPrompt
 
