@@ -23,7 +23,7 @@ function prompt_gitbranch {
     local -r current_branch=$(git branch --show-current)
     echo -n "%F{blue} ⤮ $current_branch%f"
 
-    if ! git diff-index HEAD --quiet; then
+    if ! git diff --exit-code --quiet; then
         echo -n " %F{red}%B!%b%f"
     fi
 }
