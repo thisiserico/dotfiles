@@ -1,0 +1,10 @@
+export TERM=screen-256color
+export PATH=/usr/local/bin:/usr/local/opt/gnu-sed/libexec/gnubin:$HOME/bin:$HOME/dotfiles/bin:$PATH
+
+# go
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+# use ctrl+o while fzf to open file in vim
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vim {})+abort'"

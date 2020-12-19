@@ -1,0 +1,27 @@
+# load zsh debugger
+# zmodload zsh/zprof
+
+alias sudo="sudo " # allow to use aliases while sudoing
+alias cat='bat' # cat with syntax highlightning
+alias du="ncdu --color dark -rr --exclude .git --exclude node_modules" # disk usage
+alias k='kubectl' # because kubectl is just way too long
+alias ll='exa --long --header --git' # ls -la for the day to day
+alias nan='tldr' # simplified man
+alias path='echo $PATH | tr -s ":" "\n"' # dump path in a more clear way
+alias ping='prettyping --nolegend' # ping for the 21st century
+alias preview="fzf --preview 'bat --color \"always\" {}'" # preview files as you move through them
+alias tls="tmux list-sessions" # list tmux sessions
+alias top="htop" # top for the 21st century
+
+# load and bind edit-command-line to ctrl+space
+autoload -Uz edit-command-line; zle -N edit-command-line
+bindkey '^ ' edit-command-line
+
+source ~/dotfiles/zsh/theme
+source ~/dotfiles/zsh/fzf
+source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f ~/.profile ] && source ~/.profile
+
+# dump debug info
+# zprof

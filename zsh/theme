@@ -1,0 +1,36 @@
+# allow to call methods in the prompt
+setopt PROMPT_SUBST
+
+# either ~ or the two rightmost directories, indicating previous failures in red
+function prompt_dir {
+    local -r exit_code="$?"
+
+    local color="yellow"
+    if [ $exit_code -eq 1 ]; then
+        color="red"
+    fi
+
+    echo -n "%F{$color}%2~%f"
+}
+
+# the current git branch in blue and uncommitted indicator, if any
+function prompt_gitbranch {
+    local -r is_inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
+    if [ "$is_inside_git_repo" != "true" ]; then
+        return
+    fi
+
+    local -r current_branch=$(git branch --show-current)
+    echo -n "%F{blue} ⤮ $current_branch%f"
+
+    if ! git diff-index HEAD --quiet; then
+        echo -n " %F{red}%B!%b%f"
+    fi
+}
+
+# the >: in green
+function prompt_ending {
+    echo -n "%F{green}>:%f"
+}
+
+PROMPT='$(prompt_dir)$(prompt_gitbranch) $(prompt_ending) '
