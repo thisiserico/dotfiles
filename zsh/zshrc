@@ -5,6 +5,7 @@ alias sudo="sudo " # allow to use aliases while sudoing
 alias cat='bat' # cat with syntax highlightning
 alias du="ncdu --color dark -rr --exclude .git --exclude node_modules" # disk usage
 alias k='kubectl' # because kubectl is just way too long
+alias la='exa -la --long --header --git' # ls -la for the day to day
 alias ll='exa --long --header --git' # ls -la for the day to day
 alias nan='tldr' # simplified man
 alias path='echo $PATH | tr -s ":" "\n"' # dump path in a more clear way
@@ -21,6 +22,15 @@ source ~/dotfiles/zsh/theme
 source ~/dotfiles/zsh/fzf
 source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# turn on autocompletion
+# https://gist.github.com/ctechols/ca1035271ad134841284#gistcomment-2308206
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
+
 [ -f ~/.profile ] && source ~/.profile
 
 # dump debug info

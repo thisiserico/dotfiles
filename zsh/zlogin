@@ -1,14 +1,17 @@
 # prints port status using lsof
-function busyport {
+# busy_port port
+function busy_port {
     lsof -n -i:$1 | grep LISTEN
 }
 
 # helps ídentity misterious IPs
-function whosip {
+# usage: whos_ip host port
+function whos_ip {
     openssl s_client -showcerts -connect $1:$2 | grep CN
 }
 
-# golang's dep dependency graph (brew install graphviz)
-function depgraph {
-    dep status -dot | dot -T png | open -f -a /Applications/Preview.app
+# dumps the brewfile containing all installed apps and binaries.
+# usage: dump_brewfile
+function dump_brewfile {
+    brew bundle dump --file="~/dotfiles/os/mac/brew/Brewfile" --force
 }
