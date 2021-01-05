@@ -1,4 +1,6 @@
 set nocompatible " be iMproved, required skdvk
+set backspace=indent,eol,start
+
 filetype off " required
 
 " Add stuff to the runtime path
@@ -18,11 +20,10 @@ Plugin 'VundleVim/Vundle.vim' " let bundle manage vundle
 " Navigation helpers
 Plugin 'https://github.com/scrooloose/nerdtree.git' " file navigation menu
 Plugin 'Xuyuanp/nerdtree-git-plugin'                " git stuff for nerd tree
-Plugin 'majutsushi/tagbar'                          " displays tags in a window
-" Plugin 'jakedouglas/exuberant-ctags'                " adds ctags - install ctags.sourceforge.net
+Plugin 'preservim/tagbar'                           " displays tags in a window
 Plugin 'mileszs/ack.vim'                            " ack within wim
 Plugin 'dyng/ctrlsf.vim'                            " find stuff within project
-Plugin 'sjl/gundo.vim'                              " vim history interface
+Plugin 'mbbill/undotree'                            " vim history interface
 
 " Look and feel
 Plugin 'vim-airline/vim-airline'                          " cool status bar
@@ -104,7 +105,7 @@ vnoremap <tab> %
 let mapleader = ","               " <leader> is now ,
 map q: :q                         " avoid q: window
 nnoremap <leader><space> :noh<cr> " clear highlights with
-inoremap jj <ESC>                 " use jj on inert to escape
+inoremap jj <ESC>                 " use jj on insert to escape
 map <C-x> :CtrlPBuffer<CR>
 nmap <S-F>f <Plug>CtrlSFPrompt
 
@@ -126,7 +127,7 @@ let g:rainbow_active = 1
 
 " 2 below add little red mark on lines over 100 chars
 highlight ColorColumn ctermbg=red ctermfg=black
-call matchadd('ColorColumn', '\%81v', 80)
+call matchadd('ColorColumn', '\%101v', 100)
 
 " configure the ctrlp plugin
 let g:ctrlp_max_files = 0
@@ -150,16 +151,14 @@ autocmd BufEnter * EnableStripWhitespaceOnSave
 let NERDTreeShowHidden=1
 nmap <F5> :NERDTreeFind<CR>       " toggle nerd tree focusing on file
 nmap <F6> :NERDTreeToggle<CR>     " toggle nerd tree
-map <S-C-c> :NERDTreeTabsFind<CR> " position on the current file on ctrl + shift + c
 
 " tagbar settings
 nmap <F8> :TagbarToggle<CR>
-let g:tagbar_left = 1
+let g:tagbar_position = 'leftabove vertical'
 
-" gundo seetings
-nnoremap <F9> :GundoToggle<CR>
-let g:gundo_right = 1
-let g:gundo_preview_bottom = 1
+" undotree seetings
+nnoremap <F9> :UndotreeToggle<CR>
+let g:undotree_WindowLayout = 4
 
 " vim-go options
 autocmd FileType go nmap <leader>t <Plug>(go-test)
@@ -181,6 +180,7 @@ let g:NERDSpaceDelims = 1
 " Ack settings
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
+  let g:ctrlsf_backend = 'ag'
 endif
 
 " Markdown Syntax Support
@@ -195,7 +195,8 @@ au BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4
 au BufNewFile,BufRead *.md setlocal spell noet ts=4 sw=4
 au BufNewFile,BufRead *.yml,*.yaml,*.toml setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.feature setlocal expandtab ts=4 sw=4
-au BufNewFile,BufRead *.js,*.json setlocal expandtab ts=2 sw=2
+au BufNewFile,BufRead *.js,*.json setlocal expandtab ts=4 sw=4
 au BufNewFile,BufRead *.vue setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.styl setlocal expandtab ts=2 sw=2
+au BufNewFile,BufRead *.sh,.bash setlocal expandtab ts=4 sw=4
 

@@ -1,0 +1,17 @@
+# prints port status using lsof
+# busy_port port
+function busy_port {
+    lsof -n -i:$1 | grep LISTEN
+}
+
+# helps ídentity misterious IPs
+# usage: whos_ip host port
+function whos_ip {
+    openssl s_client -showcerts -connect $1:$2 | grep CN
+}
+
+# dumps the brewfile containing all installed apps and binaries.
+# usage: dump_brewfile
+function dump_brewfile {
+    brew bundle dump --file="~/dotfiles/os/mac/brew/Brewfile" --force
+}

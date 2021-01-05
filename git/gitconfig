@@ -1,0 +1,45 @@
+[alias]
+	df = diff
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    pr = "!open `git remote get-url --push origin | sed 's/git@github.com:/https:\\/\\/github.com\\//' | sed 's/.git$//'`/compare/`git rev-parse --abbrev-ref HEAD`?expand=1"
+	st = status -sb
+    undo = reset HEAD~
+	unstage = reset
+
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+	ui = auto
+
+[core]
+	autocrlf = false
+	editor = vim
+	excludesfile = ~/.gitignore_global
+
+[diff]
+	tool = vimdiff
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = true
+
+[push]
+	default = simple
+
+[rerere]
+	enabled = 1
+	autoupdate = 1
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+[user]
+	email = hello@ericlopez.me
+	name = Eric Lopez
+
+[pager]
+    diff = diff-so-fancy | less --tabs=1,5 -RFX
+    show = diff-so-fancy | less --tabs=1,5 -RFX
