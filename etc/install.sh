@@ -137,8 +137,8 @@ set_macos_defaults() {
     defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerDragGesture -int 1 # drag with three fingers
     defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
     defaults write NSGlobalDomain AppleKeyboardUIMode -int 3 # full keyboard access for all controls
-    defaults write NSGlobalDomain KeyRepeat -int 10 # quick keyboard repeat rate
-    defaults write NSGlobalDomain InitialKeyRepeat -int 10
+    defaults write NSGlobalDomain KeyRepeat -int 2 # quick keyboard repeat rate
+    defaults write NSGlobalDomain InitialKeyRepeat -int 15
     defaults write NSGlobalDomain AppleLanguages -array "en-US" "es-ES" "pl" # configure languages and formats
     defaults write NSGlobalDomain AppleLocale -string "en_ES@currency=EUR"
     defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
@@ -212,7 +212,7 @@ install_go() {
 
     cout "installing go..."
     mkdir -p ~/go/{src,bin,pkg}
-    curl -o golang.pkg https://dl.google.com/go/go1.15.6.darwin-amd64.pkg
+    curl -o golang.pkg https://dl.google.com/go/go1.16.2.darwin-amd64.pkg
     sudo open golang.pkg
     # go get golang.org/x/tools/cmd/guru
     # go get github.com/go-delve/delve/cmd/dlv
