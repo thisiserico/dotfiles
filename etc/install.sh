@@ -162,7 +162,7 @@ set_macos_defaults() {
     defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
     defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
     defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
-    defaults write com.apple.finder AppleShowAllFiles -bool true # show hidden files
+    defaults write com.apple.finder AppleShowAllFiles -bool false # hide hidden files
     defaults write NSGlobalDomain AppleShowAllExtensions -bool true # show filename extensions
     defaults write com.apple.finder ShowStatusBar -bool false # hide finder status bar
     defaults write com.apple.finder ShowPathbar -bool true # show path bar
