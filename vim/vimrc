@@ -8,6 +8,7 @@ set rtp+=~/.vim/bundle/Vundle.vim " Include and initialize vundle
 set runtimepath^=~/.vim/bundle/ctrlp.vim " Include ctrlp
 
 set encoding=utf-8
+set autowrite
 
 " highlights (declared before plugins on purpose)
 set incsearch
@@ -24,6 +25,7 @@ Plugin 'preservim/tagbar'                           " displays tags in a window
 Plugin 'mileszs/ack.vim'                            " ack within wim
 Plugin 'dyng/ctrlsf.vim'                            " find stuff within project
 Plugin 'mbbill/undotree'                            " vim history interface
+Plugin 'vim-scripts/Rename2'                        " rename files
 
 " Look and feel
 Plugin 'vim-airline/vim-airline'                          " cool status bar
@@ -32,7 +34,6 @@ Plugin 'morhetz/gruvbox'                                  " gruvbox theme
 Plugin 'https://github.com/joeytwiddle/sexy_scroller.vim' " scrolls smoothly
 
 " Git support
-Plugin 'fugitive.vim'           " git on esteroids
 Plugin 'airblade/vim-gitgutter' " git gutter
 Plugin 'wincent/terminus'       " terminal integration
 
@@ -42,11 +43,11 @@ Plugin 'luochen1990/rainbow'                  " parentheses coloring
 Plugin 'tpope/vim-surround'                   " performance for surrounding pairs like quotes or tags
 Plugin 'ntpeters/vim-better-whitespace'       " whitespace renderer
 Plugin 'ekalinin/Dockerfile.vim'              " dockerfile highlighter
-Plugin 'https://github.com/ervandew/supertab' " autocomplete with tab
-Plugin 'garbas/vim-snipmate' 				  " snippets with <tab>
-Plugin 'honza/vim-snippets'                   " lots of snippets
-Plugin 'MarcWeber/vim-addon-mw-utils'         " dependency for snipmate
-Plugin 'tomtom/tlib_vim'                      " dependency for snipmate
+Plugin 'MarcWeber/vim-addon-mw-utils'         " vim-snipmate dependency
+Plugin 'tomtom/tlib_vim'                      " vim-snipmate dependency
+Plugin 'garbas/vim-snipmate'                  " snippet support
+Plugin 'honza/vim-snippets'                   " lots of snippets on top of vim-snipmate
+" Plugin 'https://github.com/ervandew/supertab' " autocomplete with tab (conflicts with vim-snipmate)
 Plugin 'scrooloose/nerdcommenter'             " comment and uncomment code easily
 Plugin 'easymotion/vim-easymotion' 			  " move faster through the code
 Plugin 'https://github.com/elzr/vim-json'     " json support
@@ -165,14 +166,25 @@ autocmd FileType go nmap <leader>t <Plug>(go-test)
 autocmd FileType go nmap <leader>b <Plug>(go-build)
 autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
-let g:go_version_warning = 0
+autocmd FileType go map <C-n> :cnext<CR>
+autocmd FileType go map <C-m> :cprevious<CR>
+autocmd FIleType go nnoremap <leader>a :cclose<CR>
 let g:go_auto_type_info = 1
+let g:go_autodetect_gopath = 1
 let g:go_fmt_command = "goimports"
-let g:go_rename_command = 'gopls'
 let g:go_fmt_fail_silently = 0
+let g:go_gopls_complete_unimported = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_functions_calls = 1
+let g:go_highlight_generate_tags = 1
 let g:go_highlight_operators = 1
+let g:go_highlight_types = 1
+let g:go_imports_autosave=1
+let g:go_imports_mode="gopls"
+let g:go_rename_command = 'gopls'
+let g:go_version_warning = 0
 
 " NERDCommenter settings
 let g:NERDSpaceDelims = 1
@@ -189,6 +201,9 @@ augroup markdown
     au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
 
+" configure snipmate
+let g:snipMate = { 'snippet_version' : 1 }
+
 " define space for particular file types
 au BufNewFile,BufRead *.vim setlocal noet ts=4 sw=4 sts=4
 au BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4
@@ -199,4 +214,3 @@ au BufNewFile,BufRead *.js,*.json setlocal expandtab ts=4 sw=4
 au BufNewFile,BufRead *.vue setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.styl setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.sh,.bash setlocal expandtab ts=4 sw=4
-

@@ -13,6 +13,7 @@ alias ping='prettyping --nolegend' # ping for the 21st century
 alias preview="fzf --preview 'bat --color \"always\" {}'" # preview files as you move through them
 alias tls="tmux list-sessions" # list tmux sessions
 alias top="htop" # top for the 21st century
+alias d="date"
 
 # load and bind edit-command-line to ctrl+space
 autoload -Uz edit-command-line; zle -N edit-command-line
