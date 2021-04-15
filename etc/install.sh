@@ -44,6 +44,7 @@ install_brew() {
 
     cout "installing brew..."
     bash <(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
+    source <(curl -s https://raw.githubusercontent.com/thisiserico/dotfiles/main/zsh/zshenv)
 }
 
 install_git() {
@@ -81,17 +82,16 @@ clone_dotfiles_repo() {
 install_brew_applications() {
     cout "installing applications listed in the Brewfile..."
     brew bundle install --file="~/dotfiles/os/mac/brew/Brewfile" --no-lock --force --no-upgrade || true
-    return 0
 }
 
 use_zsh_by_default() {
     cout "making zsh the default terminal..."
-    local -r shell_is_recognized=$(cat /etc/shells | grep /usr/local/bin/zsh)
+    local -r shell_is_recognized=$(cat /etc/shells | grep /bin/zsh)
     if [[ $shell_is_recognized != 0 ]]; then
-        echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells > /dev/null
+        echo "/bin/zsh" | sudo tee -a /etc/shells > /dev/null
     fi
 
-    chsh -s /usr/local/bin/zsh
+    chsh -s /bin/zsh
 }
 
 set_macos_defaults() {
