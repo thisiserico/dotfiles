@@ -36,6 +36,21 @@ file_exists() {
     [ -f $1 ]
 }
 
+setup_ssh_keys() {
+    if file_exists ~/.ssh/id_ed25519; then
+        cout "ssh keys already exist, skipping"
+        return
+    fi
+
+    cout "setting up ssh keys..."
+    mkdir -m 700 -p ~/.ssh
+    cin "email address for the ssh key" "email"
+    ssh-keygen -t ed25519 -C $email -f ~/.ssh/id_ed25519
+
+    cat ~/.ssh/id_ed25519.pub
+    cin "add the public key above to github and come back (press enter when done)" "x"
+}
+
 install_brew() {
     if binary_exists brew; then
         cout "brew already installed, skipping"
@@ -55,18 +70,6 @@ install_git() {
 
     cout "installing git..."
     brew install git
-}
-
-setup_ssh_keys() {
-    if file_exists ~/.ssh/id_ed25519; then
-        cout "ssh keys already exist, skipping"
-        return
-    fi
-
-    cout "setting up ssh keys..."
-    mkdir -m 700 -p ~/.ssh
-    cin "email address for the ssh key" "email"
-    ssh-keygen -t ed25519 -C $email -f ~/.ssh/id_ed25519
 }
 
 clone_dotfiles_repo() {
@@ -253,9 +256,9 @@ setup_vim() {
 
 cout "✨ initiating installation..."
 sudo -v
+setup_ssh_keys
 install_brew
 install_git
-setup_ssh_keys
 clone_dotfiles_repo
 install_brew_applications
 use_zsh_by_default
