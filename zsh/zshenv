@@ -1,5 +1,5 @@
 export TERM=screen-256color
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/opt/X11/bin:/usr/local/opt/gnu-sed/libexec/gnubin:$HOME/go/bin:/usr/local/opt/fzf/bin
+export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:$HOME/go/bin
 
 # go
 export GOPATH=$HOME/go

@@ -36,26 +36,6 @@ file_exists() {
     [ -f $1 ]
 }
 
-install_brew() {
-    if binary_exists brew; then
-        cout "brew already installed, skipping"
-        return
-    fi
-
-    cout "installing brew..."
-    bash <(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
-}
-
-install_git() {
-    if binary_exists git; then
-        cout "git already installed, skipping"
-        return
-    fi
-
-    cout "installing git..."
-    brew install git
-}
-
 setup_ssh_keys() {
     if file_exists ~/.ssh/id_ed25519; then
         cout "ssh keys already exist, skipping"
@@ -66,6 +46,30 @@ setup_ssh_keys() {
     mkdir -m 700 -p ~/.ssh
     cin "email address for the ssh key" "email"
     ssh-keygen -t ed25519 -C $email -f ~/.ssh/id_ed25519
+
+    cat ~/.ssh/id_ed25519.pub
+    cin "add the public key above to github and come back (press enter when done)" "x"
+}
+
+install_brew() {
+    if binary_exists brew; then
+        cout "brew already installed, skipping"
+        return
+    fi
+
+    cout "installing brew..."
+    bash <(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
+    source <(curl -s https://raw.githubusercontent.com/thisiserico/dotfiles/main/zsh/zshenv)
+}
+
+install_git() {
+    if binary_exists git; then
+        cout "git already installed, skipping"
+        return
+    fi
+
+    cout "installing git..."
+    brew install git
 }
 
 clone_dotfiles_repo() {
@@ -81,17 +85,16 @@ clone_dotfiles_repo() {
 install_brew_applications() {
     cout "installing applications listed in the Brewfile..."
     brew bundle install --file="~/dotfiles/os/mac/brew/Brewfile" --no-lock --force --no-upgrade || true
-    return 0
 }
 
 use_zsh_by_default() {
     cout "making zsh the default terminal..."
-    local -r shell_is_recognized=$(cat /etc/shells | grep /usr/local/bin/zsh)
+    local -r shell_is_recognized=$(cat /etc/shells | grep /bin/zsh)
     if [[ $shell_is_recognized != 0 ]]; then
-        echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells > /dev/null
+        echo "/bin/zsh" | sudo tee -a /etc/shells > /dev/null
     fi
 
-    chsh -s /usr/local/bin/zsh
+    chsh -s /bin/zsh
 }
 
 set_macos_defaults() {
@@ -253,9 +256,9 @@ setup_vim() {
 
 cout "✨ initiating installation..."
 sudo -v
+setup_ssh_keys
 install_brew
 install_git
-setup_ssh_keys
 clone_dotfiles_repo
 install_brew_applications
 use_zsh_by_default
