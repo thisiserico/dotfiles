@@ -83,6 +83,8 @@ clone_dotfiles_repo() {
 }
 
 install_brew_applications() {
+    cin "make sure to sign into the apple store (press enter when done)" "x"
+
     cout "installing applications listed in the Brewfile..."
     brew bundle install --file="~/dotfiles/os/mac/brew/Brewfile" --no-lock --force --no-upgrade || true
 }
