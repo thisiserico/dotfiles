@@ -61,9 +61,28 @@ Plugin 'jtratner/vim-flavored-markdown' " github highlightning
 Plugin 'fatih/vim-go'                " adds lots of go utilities
 Plugin 'AndrewRadev/splitjoin.vim'   " splits and joins structs
 
+" Javascript specific
+" Plugin 'prettier/vim-prettier'
+Plugin 'w0rp/ale'
+
 call vundle#end() " required
 
 filetype plugin indent on " required, do not remove
+
+let g:ale_fixers = {
+ \ 'javascript': ['eslint'],
+ \ 'typescript': ['tslint'],
+ \ 'typescriptreact': ['prettier', 'eslint'],
+ \ 'json': ['fixjson']
+ \}
+let g:ale_completion_autoimport = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_fix_on_save = 1
+
+" let g:prettier#autoformat = 1
+" let g:prettier#autoformat_require_pragma = 0
+" let g:prettier#autoformat_config_present = 1
 
 " improved navigation
 set mouse=a         " enable mouse scrolling
@@ -125,6 +144,7 @@ colorscheme gruvbox
 set laststatus=2 " show airline even when only 1 file is open
 let g:airline_theme='distinguished'
 let g:rainbow_active = 1
+set maxmempattern=20000 " increased memory that keeps syntax highlighting in large files
 
 " 2 below add little red mark on lines over 100 chars
 highlight ColorColumn ctermbg=red ctermfg=black
@@ -210,7 +230,7 @@ au BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4
 au BufNewFile,BufRead *.md setlocal spell noet ts=4 sw=4
 au BufNewFile,BufRead *.yml,*.yaml,*.toml setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.feature setlocal expandtab ts=4 sw=4
-au BufNewFile,BufRead *.js,*.json setlocal expandtab ts=4 sw=4
+au BufNewFile,BufRead *.js,*.json,*.tsx setlocal expandtab ts=4 sw=4
 au BufNewFile,BufRead *.vue setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.styl setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.sh,.bash setlocal expandtab ts=4 sw=4
