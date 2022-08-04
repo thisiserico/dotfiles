@@ -79,7 +79,7 @@ clone_dotfiles_repo() {
     fi
 
     cout "cloning dotfiles repo..."
-    git clone --recurse-submodules git://github.com/thisiserico/dotfiles.git ~/dotfiles
+    git clone --recurse-submodules git@github.com:thisiserico/dotfiles.git ~/dotfiles
 }
 
 install_brew_applications() {
@@ -238,7 +238,7 @@ link_dotfiles() {
 setup_tmux() {
     cout "setting up tmux..."
     if ! folder_exists ~/.tmux/plugins/tpm; then
-        git clone git://github.com/tmux-plugins/tpm.git ~/.tmux/plugins/tpm
+        git clone git@github.com:tmux-plugins/tpm.git ~/.tmux/plugins/tpm
     fi
 
     ~/.tmux/plugins/tpm/bin/install_plugins
@@ -247,10 +247,10 @@ setup_tmux() {
 setup_vim() {
     cout "setting up vim..."
     if ! folder_exists ~/.vim/bundle/Vundle.vim; then
-	    git clone git://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	    git clone git@github.com:VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     fi
     if ! folder_exists ~/.vim/bundle/ctrlp.vim; then
-	    git clone git://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
+	    git clone git@github.com:ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
     fi
 
     vim -c PluginInstall -c qall
