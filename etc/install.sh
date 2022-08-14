@@ -120,7 +120,7 @@ set_macos_defaults() {
     sudo dscl . delete /Users/$whodis Picture
     sudo dscl . create /Users/$whodis Picture "/Users/$whodis/dotfiles/os/profile.jpg"
     sudo nvram SystemAudioVolume=" " # disable sound on boot
-    defaults write NSGlobalDomain _HIHideMenuBar -bool true # hide menu bar
+    defaults write NSGlobalDomain _HIHideMenuBar -bool false # do not hide menu bar
     defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1 # small finder sidebar icons
     defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling" # scrollbars when needed only
     defaults write NSGlobalDomain NSUseAnimatedFocusRing -bool false # no focus rings
@@ -148,12 +148,12 @@ set_macos_defaults() {
     defaults write NSGlobalDomain AppleLocale -string "en_ES@currency=EUR"
     defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
     defaults write NSGlobalDomain AppleMetricUnits -bool true
-    sudo systemsetup -settimezone "Europe/Madrid" > /dev/null # set timezone
+    sudo systemsetup -settimezone "Europe/Madrid" > /dev/null 2>&1 # set timezone
     sudo pmset -a lidwake 1 # lid wakeup
     sudo pmset -a displaysleep 0 # do not sleep nor hibernate
     sudo pmset -c sleep 0
     sudo pmset -b sleep 0
-    sudo systemsetup -setcomputersleep Off > /dev/null
+    sudo systemsetup -setcomputersleep Off > /dev/null 2>&1
     sudo pmset -a hibernatemode 0
     defaults write com.apple.screensaver askForPassword -int 1 # ask for password right after locking
     defaults write com.apple.screensaver askForPasswordDelay -int 0

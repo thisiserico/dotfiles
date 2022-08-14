@@ -7,6 +7,7 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "tinygo-org/tools"
 brew "ack"
+brew "ca-certificates"
 brew "bash"
 brew "bat"
 brew "ccat"
@@ -27,7 +28,7 @@ brew "gnutls"
 brew "gnupg"
 brew "golangci-lint"
 brew "htop"
-brew "python@3.10"
+brew "python@3.10", link: false
 brew "httpie"
 brew "jq"
 brew "lsof"
@@ -52,6 +53,7 @@ brew "wget"
 brew "yarn"
 brew "zsh"
 brew "zsh-completions"
+brew "hashicorp/tap/terraform"
 brew "tinygo-org/tools/tinygo"
 cask "1password"
 cask "bossa"
@@ -64,7 +66,6 @@ cask "font-mononoki-nerd-font"
 cask "google-chrome"
 cask "insomnia"
 cask "iterm2"
-cask "krisp"
 cask "ngrok"
 cask "notion"
 cask "numi"
@@ -85,21 +86,17 @@ cask "vlc"
 cask "webtorrent"
 cask "zoom"
 mas "Bear", id: 1091189122
-mas "CloudApp", id: 417602904
 mas "DaisyDisk", id: 411643860
 mas "Flow", id: 1423210932
 mas "GarageBand", id: 682658836
 mas "GIPHY CAPTURE", id: 668208984
-mas "HueParty", id: 630956426
-mas "iLightShow", id: 1217138942
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Magnet", id: 441258766
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "SketchBook", id: 863486266
 mas "Slack", id: 803453959
 mas "Tailscale", id: 1475387142
 mas "The Unarchiver", id: 425424353
-mas "VPN Unlimited®", id: 694633015
+mas "Surfshark", id: 1437809329
 mas "WhatsApp", id: 1147396723
