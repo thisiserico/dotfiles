@@ -15,3 +15,5 @@ function whos_ip {
 function dump_brewfile {
     brew bundle dump --file="~/dotfiles/os/mac/brew/Brewfile" --force
 }
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

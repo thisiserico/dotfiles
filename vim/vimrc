@@ -43,10 +43,10 @@ Plugin 'luochen1990/rainbow'                  " parentheses coloring
 Plugin 'tpope/vim-surround'                   " performance for surrounding pairs like quotes or tags
 Plugin 'ntpeters/vim-better-whitespace'       " whitespace renderer
 Plugin 'ekalinin/Dockerfile.vim'              " dockerfile highlighter
-Plugin 'MarcWeber/vim-addon-mw-utils'         " vim-snipmate dependency
-Plugin 'tomtom/tlib_vim'                      " vim-snipmate dependency
-Plugin 'garbas/vim-snipmate'                  " snippet support
-Plugin 'honza/vim-snippets'                   " lots of snippets on top of vim-snipmate
+" Plugin 'MarcWeber/vim-addon-mw-utils'         " vim-snipmate dependency
+" Plugin 'tomtom/tlib_vim'                      " vim-snipmate dependency
+" Plugin 'garbas/vim-snipmate'                  " snippet support
+" Plugin 'honza/vim-snippets'                   " lots of snippets on top of vim-snipmate
 " Plugin 'https://github.com/ervandew/supertab' " autocomplete with tab (conflicts with vim-snipmate)
 Plugin 'scrooloose/nerdcommenter'             " comment and uncomment code easily
 Plugin 'easymotion/vim-easymotion' 			  " move faster through the code
@@ -63,7 +63,8 @@ Plugin 'AndrewRadev/splitjoin.vim'   " splits and joins structs
 
 " Javascript specific
 " Plugin 'prettier/vim-prettier'
-Plugin 'w0rp/ale'
+" Plugin 'w0rp/ale'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
 call vundle#end() " required
 
@@ -79,6 +80,54 @@ let g:ale_completion_autoimport = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 let g:ale_fix_on_save = 1
+
+let g:coc_global_extensions = ['coc-go', 'coc-tsserver', 'coc-html']
+
+" Use <tab> to trigger completion
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice
+" inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              " \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion
+inoremap <silent><expr> <c-@> coc#refresh()
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
+" nmap <silent> [g <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Go back with C-o
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" Symbol renaming
+nmap <leader>rn <Plug>(coc-rename)
 
 " let g:prettier#autoformat = 1
 " let g:prettier#autoformat_require_pragma = 0
@@ -222,7 +271,7 @@ augroup markdown
 augroup END
 
 " configure snipmate
-let g:snipMate = { 'snippet_version' : 1 }
+" let g:snipMate = { 'snippet_version' : 1 }
 
 " define space for particular file types
 au BufNewFile,BufRead *.vim setlocal noet ts=4 sw=4 sts=4
@@ -230,7 +279,9 @@ au BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4
 au BufNewFile,BufRead *.md setlocal spell noet ts=4 sw=4
 au BufNewFile,BufRead *.yml,*.yaml,*.toml setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.feature setlocal expandtab ts=4 sw=4
-au BufNewFile,BufRead *.js,*.json,*.tsx setlocal expandtab ts=4 sw=4
+au BufNewFile,BufRead *.js,*.json,*.tsx setlocal expandtab ts=2 sw=2
+au BufNewFile,BufRead *.css setlocal expandtab ts=2 sw=2
+au BufNewFile,BufRead *.html setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.vue setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.styl setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.sh,.bash setlocal expandtab ts=4 sw=4

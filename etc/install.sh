@@ -217,7 +217,7 @@ install_go() {
 
     cout "installing go..."
     mkdir -p ~/go/{src,bin,pkg}
-    curl -o golang.pkg https://dl.google.com/go/go1.16.2.darwin-amd64.pkg
+    curl -o golang.pkg https://dl.google.com/go/go1.20.2.darwin-amd64.pkg
     sudo open golang.pkg
     # go get golang.org/x/tools/cmd/guru
     # go get github.com/go-delve/delve/cmd/dlv
