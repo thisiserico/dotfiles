@@ -79,7 +79,7 @@ clone_dotfiles_repo() {
     fi
 
     cout "cloning dotfiles repo..."
-    git clone --recurse-submodules git@github.com:thisiserico/dotfiles.git ~/dotfiles
+    git clone -b m3-machine --recurse-submodules git@github.com:thisiserico/dotfiles.git ~/dotfiles
 }
 
 install_brew_applications() {
