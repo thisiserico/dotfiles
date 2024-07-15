@@ -16,6 +16,7 @@
 	autocrlf = false
 	editor = vim
 	excludesfile = ~/.gitignore_global
+	compression = 0
 
 [diff]
 	tool = vimdiff
