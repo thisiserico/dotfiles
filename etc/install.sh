@@ -138,6 +138,8 @@ set_macos_defaults() {
     defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false # no smart quotes
     defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false # no auto-correct
     defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true # tap on click
+    defaults -currentHost write -globalDomain com.apple.mouse.tapBehavior -int 1
+    defaults -currentHost write -globalDomain com.apple.trackpad.tapBehavior -int 1
     defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
     defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerDragGesture -int 1 # drag with three fingers
     defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
