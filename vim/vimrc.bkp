@@ -70,8 +70,18 @@ call vundle#end() " required
 
 filetype plugin indent on " required, do not remove
 
-let g:coc_global_extensions = ['coc-go', 'coc-tsserver', 'coc-html']
-let g:coc_disable_startup_warning = 1
+let g:ale_fixers = {
+ \ 'javascript': ['eslint'],
+ \ 'typescript': ['tslint'],
+ \ 'typescriptreact': ['prettier', 'eslint'],
+ \ 'json': ['fixjson']
+ \}
+" let g:ale_completion_autoimport = 1
+" let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_insert_leave = 0
+" let g:ale_fix_on_save = 1
+
+let g:coc_global_extensions = ['coc-go', 'coc-tsserver']
 
 " Use <tab> to trigger completion
 inoremap <silent><expr> <TAB>
@@ -84,9 +94,6 @@ inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 " <C-g>u breaks current undo, please make your own choice
 " inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
 " \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-" show documentation with Shift + k
-nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! CheckBackspace() abort
   let col = col('.') - 1

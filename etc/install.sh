@@ -79,7 +79,7 @@ clone_dotfiles_repo() {
     fi
 
     cout "cloning dotfiles repo..."
-    git clone --recurse-submodules git@github.com:thisiserico/dotfiles.git ~/dotfiles
+    git clone -b m3-machine --recurse-submodules git@github.com:thisiserico/dotfiles.git ~/dotfiles
 }
 
 install_brew_applications() {
@@ -138,6 +138,8 @@ set_macos_defaults() {
     defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false # no smart quotes
     defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false # no auto-correct
     defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true # tap on click
+    defaults -currentHost write -globalDomain com.apple.mouse.tapBehavior -int 1
+    defaults -currentHost write -globalDomain com.apple.trackpad.tapBehavior -int 1
     defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
     defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerDragGesture -int 1 # drag with three fingers
     defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
@@ -217,7 +219,7 @@ install_go() {
 
     cout "installing go..."
     mkdir -p ~/go/{src,bin,pkg}
-    curl -o golang.pkg https://dl.google.com/go/go1.20.2.darwin-amd64.pkg
+    curl -o golang.pkg https://dl.google.com/go/go1.21.9.darwin-amd64.pkg
     sudo open golang.pkg
     # go get golang.org/x/tools/cmd/guru
     # go get github.com/go-delve/delve/cmd/dlv
