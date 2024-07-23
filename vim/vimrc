@@ -63,12 +63,15 @@ Plugin 'AndrewRadev/splitjoin.vim'   " splits and joins structs
 
 " Javascript specific
 " Plugin 'prettier/vim-prettier'
-" Plugin 'w0rp/ale'
+Plugin 'w0rp/ale'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
 call vundle#end() " required
 
 filetype plugin indent on " required, do not remove
+
+let b:ale_fixers = ['prettier', 'eslint']
+let g:ale_fix_on_save = 1
 
 let g:coc_global_extensions = ['coc-go', 'coc-tsserver', 'coc-html']
 let g:coc_disable_startup_warning = 1
