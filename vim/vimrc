@@ -70,7 +70,9 @@ call vundle#end() " required
 
 filetype plugin indent on " required, do not remove
 
-let b:ale_fixers = ['prettier', 'eslint']
+let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
+let g:ale_linters = { 'javascript': ['eslint'], 'typescript': ['eslint'], 'typescriptreact': ['eslint'] }
+let g:ale_fixers = {'javascript': ['prettier'], 'typescript': ['prettier'], 'typescriptreact': ['prettier']}
 let g:ale_fix_on_save = 1
 
 let g:coc_global_extensions = ['coc-go', 'coc-tsserver', 'coc-html']
@@ -199,6 +201,7 @@ call matchadd('ColorColumn', '\%101v', 100)
 let g:ctrlp_max_files = 0
 let g:ctrlp_max_depth = 40
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_cmd = 'CtrlPMRU' " Fetch the most recent used files first
 
 " configure the raimondi/delimitMate plugin
 let delimitMate_expand_cr = 0
