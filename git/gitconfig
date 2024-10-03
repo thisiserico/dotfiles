@@ -30,6 +30,9 @@
 [push]
 	default = simple
 
+[rebase]
+  autosquash = true
+
 [rerere]
 	enabled = 1
 	autoupdate = 1
