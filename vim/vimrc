@@ -71,11 +71,15 @@ call vundle#end() " required
 filetype plugin indent on " required, do not remove
 
 let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
-let g:ale_linters = { 'javascript': ['eslint'], 'typescript': ['eslint'], 'typescriptreact': ['eslint'] }
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'typescript': ['eslint', 'tsserver'],
+\   'typescriptreact': ['eslint', 'tsserver']
+\ }
 let g:ale_fixers = {'javascript': ['prettier'], 'typescript': ['prettier'], 'typescriptreact': ['prettier']}
 let g:ale_fix_on_save = 1
 
-let g:coc_global_extensions = ['coc-go', 'coc-tsserver', 'coc-html']
+let g:coc_global_extensions = ['coc-go', 'coc-tsserver', 'coc-html', 'coc-solargraph']
 let g:coc_disable_startup_warning = 1
 
 " Use <tab> to trigger completion
