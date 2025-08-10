@@ -173,7 +173,6 @@ let mapleader = ","               " <leader> is now ,
 map q: :q                         " avoid q: window
 nnoremap <leader><space> :noh<cr> " clear highlights with
 inoremap jj <ESC>                 " use jj on insert to escape
-map <C-x> :CtrlPBuffer<CR>
 nmap <S-F>f <Plug>CtrlSFPrompt
 
 " get rid of the arrow keys and : \o/
@@ -201,7 +200,6 @@ call matchadd('ColorColumn', '\%101v', 100)
 let g:ctrlp_max_files = 0
 let g:ctrlp_max_depth = 40
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-let g:ctrlp_cmd = 'CtrlPMRU' " Fetch the most recent used files first
 
 " configure the raimondi/delimitMate plugin
 let delimitMate_expand_cr = 0
@@ -261,6 +259,7 @@ let g:NERDSpaceDelims = 1
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
   let g:ctrlsf_backend = 'ag'
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
 " Markdown Syntax Support
