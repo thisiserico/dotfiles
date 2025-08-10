@@ -36,9 +36,5 @@ compinit -C
 
 [ -f ~/.profile ] && source ~/.profile
 
-# dump debug info
-# zprof
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="/opt/homebrew/opt/ruby@3.2/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
