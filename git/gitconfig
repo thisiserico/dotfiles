@@ -20,15 +20,20 @@
 
 [diff]
 	tool = vimdiff
+	algorithm = histogram
 
 [init]
 	defaultBranch = main
+
+[commit]
+	verbose = true
 
 [pull]
 	rebase = true
 
 [push]
 	default = simple
+	autoSetupRemote = true
 
 [rebase]
   autosquash = true
