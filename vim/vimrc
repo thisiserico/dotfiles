@@ -26,6 +26,7 @@ Plugin 'mileszs/ack.vim'                            " ack within wim
 Plugin 'dyng/ctrlsf.vim'                            " find stuff within project
 Plugin 'mbbill/undotree'                            " vim history interface
 Plugin 'vim-scripts/Rename2'                        " rename files
+" Plugin 'mg979/vim-visual-multi'                     " multi cursor
 
 " Look and feel
 Plugin 'vim-airline/vim-airline'                          " cool status bar
@@ -196,6 +197,11 @@ set laststatus=2 " show airline even when only 1 file is open
 let g:airline_theme='distinguished'
 let g:rainbow_active = 1
 set maxmempattern=20000 " increased memory that keeps syntax highlighting in large files
+
+" session handling
+let g:session_dir = '~/dev/vim-sessions'
+exec 'nnoremap <Leader>ss :mks! ' . g:session_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
+exec 'nnoremap <Leader>sr :so ' . g:session_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'
 
 " 2 below add little red mark on lines over 100 chars
 highlight ColorColumn ctermbg=red ctermfg=black

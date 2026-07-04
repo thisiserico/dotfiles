@@ -1,5 +1,6 @@
+export EDITOR=vim
 export TERM=screen-256color
-export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:$HOME/go/bin
+export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:$HOME/go/bin:$HOME/.local/bin
 
 # go
 export GOPATH=$HOME/go
