@@ -1,8 +1,3 @@
-tap "hashicorp/tap"
-tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
-tap "homebrew/services"
 tap "redis-stack/redis-stack"
 tap "tinygo-org/tools"
 brew "ack"
@@ -66,33 +61,27 @@ brew "yarn"
 brew "zlib"
 brew "zsh"
 brew "zsh-completions"
-brew "hashicorp/tap/terraform"
 brew "tinygo-org/tools/tinygo"
 cask "1password"
-cask "aws-vault"
-cask "bossa"
+cask "bossa-app"
 cask "cyberduck"
-cask "discord"
-cask "docker"
+cask "docker-desktop"
 cask "firefox"
 cask "flixtools"
-cask "flux"
+cask "flux-app"
 cask "font-mononoki-nerd-font"
 cask "google-chrome"
 cask "insomnia"
 cask "iterm2"
 cask "ngrok"
-cask "notion"
 cask "numi"
 cask "obs"
 cask "postman"
 cask "reaper"
 cask "redis-stack-server"
 cask "rocket"
-cask "sequel-pro"
 cask "sidequest"
 cask "spotify"
-cask "sqlpro-for-postgres"
 cask "telegram"
 cask "tor-browser"
 cask "vlc"
@@ -100,14 +89,9 @@ cask "webtorrent"
 cask "zoom"
 mas "Bear", id: 1091189122
 mas "DaisyDisk", id: 411643860
-mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
 mas "Magnet", id: 441258766
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
 mas "Slack", id: 803453959
 mas "Surfshark", id: 1437809329
 mas "Tailscale", id: 1475387142
 mas "The Unarchiver", id: 425424353
-mas "WhatsApp", id: 1147396723

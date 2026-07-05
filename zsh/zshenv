@@ -1,10 +1,6 @@
 export TERM=screen-256color
 export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:$HOME/go/bin
 
-# go
-export GOPATH=$HOME/go
-export GOROOT=/usr/local/go
-
 # use ctrl+o while fzf to open file in vim
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vim {})+abort'"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=5"

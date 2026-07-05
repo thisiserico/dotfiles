@@ -58,7 +58,7 @@ install_brew() {
     fi
 
     cout "installing brew..."
-    bash <(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
+    /bin/bash <(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
     source <(curl -s https://raw.githubusercontent.com/thisiserico/dotfiles/main/zsh/zshenv)
 }
 
@@ -86,7 +86,7 @@ install_brew_applications() {
     cin "make sure to sign into the apple store (press enter when done)" "x"
 
     cout "installing applications listed in the Brewfile..."
-    brew bundle install --file="~/dotfiles/os/mac/brew/Brewfile" --no-lock --force --no-upgrade || true
+    brew bundle install --file="~/dotfiles/os/mac/brew/Brewfile" --force --no-upgrade
 }
 
 use_zsh_by_default() {
@@ -114,7 +114,7 @@ set_macos_defaults() {
         sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $host
     fi
 
-    osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true' # dark mode
+    defaults write NSGlobalDomain AppleInterfaceStyleSwitchesAutomatically -bool true # automatic dark mode
     osascript -e 'tell application "Finder" to set desktop picture to POSIX file "/Users/'$whodis'/dotfiles/os/wallpaper.jpg"' # set wallpaper
     sudo dscl . delete /Users/$whodis JPEGPhoto # set profile picture
     sudo dscl . delete /Users/$whodis Picture
@@ -131,16 +131,24 @@ set_macos_defaults() {
     defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false # save to disk
     defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true # don't quit inactive apps
     defaults write com.apple.CrashReporter DialogType -string "none" # no crash reporter
-    launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null # no notification center
     defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false # no auto-capitalization
     defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false # no smart dashes
     defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false # no automatic periods
     defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false # no smart quotes
     defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false # no auto-correct
     defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true # tap on click
+    defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
     defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-    defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerDragGesture -int 1 # drag with three fingers
     defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+    defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true # drag with three fingers
+    defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
+    defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerDragGesture -bool true
+    defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 0 # free three fingers for dragging, four-finger swipes remain
+    defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 0
+    defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 0
+    defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 0
+    defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerHorizSwipeGesture -int 0
+    defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerVertSwipeGesture -int 0
     defaults write NSGlobalDomain AppleKeyboardUIMode -int 3 # full keyboard access for all controls
     defaults write NSGlobalDomain KeyRepeat -int 2 # quick keyboard repeat rate
     defaults write NSGlobalDomain InitialKeyRepeat -int 15
@@ -175,9 +183,10 @@ set_macos_defaults() {
     defaults write com.apple.finder FXDefaultSearchScope -string "SCcf" # search current folder only
     defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false # no warning when changing extension
     defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true # no .DS_Store files in network or USBs
-    /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist # snap to grid
-    /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-    /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+    for view in DesktopViewSettings FK_StandardViewSettings StandardViewSettings; do # snap to grid
+        /usr/libexec/PlistBuddy -c "Set :$view:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist 2> /dev/null ||
+            /usr/libexec/PlistBuddy -c "Add :$view:IconViewSettings:arrangeBy string grid" ~/Library/Preferences/com.apple.finder.plist
+    done
     defaults write com.apple.finder FXPreferredViewStyle -string "icnv" # icons view in finder
     defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true # airdrop over the net
     defaults write com.apple.dock tilesize -int 22 # dock icons size
@@ -191,7 +200,6 @@ set_macos_defaults() {
     defaults write com.apple.dashboard mcx-disabled -bool true # disable dock as dashboard
     defaults write com.apple.dock dashboard-in-overlay -bool true
     defaults write com.apple.dock orientation -string left # display dock to the left
-    defaults write com.apple.spotlight orderedItems -array '{"enabled" = 1;"name" = "APPLICATIONS";}' '{"enabled" = 1;"name" = "SYSTEM_PREFS";}' # only apps and preferences in spotlight
     open -a /Applications/iTerm.app "$HOME/dotfiles/iterm/profile.itermkeymap" # use a custom iTerm2 keymap setup
     open -a /Applications/iTerm.app "$HOME/dotfiles/iterm/themes/Ciapre.itermcolors" # use the iTerm2 ciapire theme
     defaults write com.googlecode.iterm2 PromptOnQuit -bool false # quit iTerm2 without a prompt
@@ -205,6 +213,7 @@ set_macos_defaults() {
     defaults write com.apple.SoftwareUpdate AutomaticDownload -int 1 # background download of app updates
     defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true # do nothing when plugging new devices
 
+    /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u # apply keyboard and trackpad settings without logging out
     killall Dock
     killall Finder
 }
@@ -217,7 +226,7 @@ install_go() {
 
     cout "installing go..."
     mkdir -p ~/go/{src,bin,pkg}
-    curl -o golang.pkg https://dl.google.com/go/go1.21.9.darwin-amd64.pkg
+    curl -o golang.pkg https://dl.google.com/go/go1.26.4.darwin-amd64.pkg
     sudo open golang.pkg
     # go get golang.org/x/tools/cmd/guru
     # go get github.com/go-delve/delve/cmd/dlv
